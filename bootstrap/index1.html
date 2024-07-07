@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="https://getbootstrap.com/docs/4.0/assets/img/favicons/favicon.ico">
+
+  <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" 
+  integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous"> 
+  
+  <title>My First Bootstrap Page</title>
+  <style>
+    .jumbotron {
+      background: url("/Images/eldenRingIntro.png") no-repeat center center;
+      background-size: cover;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+      min-height: 500px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      font-size: 2rem;
+    }
+  </style>
+  
+  
+
+</head>
+<body>
+
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <a class="navbar-brand" href="#">Aris</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">Disabled</a>
+          </li>
+        </ul>
+        <form class="form-inline mt-2 mt-md-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+  </header>
+
+  <main role="main">
+    <div class="jumbotron text-center">
+      <h1>Welcome to The Lands Between.</h1>
+      <p>Explore the open-world and conqure the lords!</p>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-12 text-center">
+          <img class="rounded-circle" src="/Images/Queen_Marika_the_Eternal.webp" alt="Queen Marika" width="160" height="160">
+          <h3>Queen Marika</h3>
+          <p>Former ruler of the Lands Between.Shattered the Elden Ring, causing chaos and upheaval in the realm. 
+            Marika's actions led to the fall of the Golden Order and the exile of the Tarnished. <br>
+          </p>
+          <p>
+            <button type="button" class="btn btn-outline-dark btn-sm" style="background-color: #8B7500; color: #ffffff;">Explore Further >> </button>
+          </p>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 text-center">
+          <img class="rounded-circle" src="/Images/ER_Godfrey.webp" alt="Lords" width="160" height="160">
+          <h3>Elden Lords</h3>
+          <p>Powerful rulers of the Lands Between.They govern various regions and uphold the order established by the Ring.
+            Each Lord possesses immense strength and influnce. <br>
+          </p>
+          <p>
+            <button type="button" class="btn btn-outline-dark btn-sm" style="background-color: #8B7500; color: #ffffff;">Explore Further >> </button>
+          </p>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 text-center">
+          <img class="rounded-circle" src="/Images/turnised.jpg" alt="Turnished" width="160" height="160">
+          <h3>Turnished</h3>
+          <p>Exiled warriors called back to the Lands Between to restore the Elden Ring and become Elden Lord. They are guided by grace and seek to reclaim their lost honor. <br>
+          </p>
+          <p>
+            <button type="button" class="btn btn-outline-dark btn-sm" style="background-color: #8B7500; color: #ffffff;">Explore Further >> </button>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <table class="table table-dark table-striped table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>PlayerName</th>
+            <th>Game Time</th>
+            <th>Achievements</th>
+          </tr>
+        </thead>
+        <tbody> 
+          <tr>
+            <td>Aeloria</td>
+            <td>50 hours</td>
+            <td>Shardbearer Godrick, Rennala's Heir, Erdtree Guardian</td>
+          </tr>
+          <tr>
+            <td>Thalindir</td>
+            <td>40 hours</td>
+            <td>Shardbearer Radahn, Godfrey's Challenger, Starscourge Defeater</td>
+          </tr>
+          <tr>
+            <td>Kaelthas</td>
+            <td>60 hours</td>
+            <td>Shardbearer Morgott, Malenia's Conqueror, Dragon Slayer</td>
+          </tr>
+          <tr>
+            <td>Elarion</td>
+            <td>55 hours</td>
+            <td>Shardbearer Mohg, Elden Lord Aspirant, Serpent Hunter</td>
+          </tr>
+          <tr>
+            <td>Rivyn</td>
+            <td>45 hours</td>
+            <td>Shardbearer Rykard, Fia's Champion, Ranni's Consort</td>
+          </tr>        
+        </tbody>
+      </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+  </main>
+</body>
+
+<footer>
+  <span>Photo by <a href="https://www.uhdpaper.com/search?q=Elden+Ring&by-date=true">EldenArts</a> on <a href="https://www.uhdpaper.com/">UHDpaper</a></span>
+</footer>
+
+</html>
