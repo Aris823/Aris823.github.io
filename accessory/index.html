@@ -1,98 +1,272 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Car Accessories</title>
-    <link rel="stylesheet" type="text/css"   href="/css/global.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+    <title>Sample Quotation</title>
+    <meta name="description" content="Company quotation">
+    <meta name="author" content="SitePoint">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
 </head>
+
 <body>
-    <h1>Car Accessories</h1>
-    <h3>Add Accessory</h3>
-    <select id="accessory-select">
-        <option value="10">Car Cover</option>
-        <option value="20">Seat Covers</option>
-        <option value="30">Phone Holder</option>
-        <!-- Add more options here -->
-    </select>
-    <input type="number" id="amount-input" min="1" value="1">
-    <button class="add-button" onclick="addItem()">Add</button>
- 
- 
-    <h2>Product List</h2>
-    <table id="product-list">
-        <tr>
-            <th>Accessory</th>
-            <th>Amount</th>
-            <th>Price</th>
-        </tr>
-    </table>
-    
-    <h2>Total Price: <span id="total-price">$0</span></h2>
-    <h2> Vat Amount: <span id="vatAmount">$0</span></h2>
-    <h2> Total Amount (after Vat 7%): <span id="totalAmount">$0</span></th2>
- 
-    
-    <script>
-        function addItem() {
-            // var accessorySelect = document.getElementById("accessory-select");
-            // var selectedAccessory = accessorySelect.options[accessorySelect.selectedIndex].text;
-            // var selectedAccessoryValue = accessorySelect.options[accessorySelect.selectedIndex].value;
-            // var amountInput = document.getElementById("amount-input");
-            // var amount = amountInput.value;
-            // var accessoryTable = document.getElementById("accessory-table");
-            // var price = parseFloat(selectedAccessoryValue)
-            // var totalPrice = document.getElementById("total-price");
-            // var productTable = document.getElementById("product-list");
+    <!-- <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <h2>VMS HACKER</h2>
+                <p>
+                    Bangsaothong
+                    <br>Samutrprakarn
+                    <br>THAILAND
+                    <br>30000
+                    <br>
 
-            var selectedAccessory = $("#accessory-select option:selected").text();
-            var selectedAccessoryValue = parseFloat($("#accessory-select").val());
-            var amount = parseInt($("#amount-input").val());
-            var price = selectedAccessoryValue * amount;
-            
-            
-            // var row = productTable.insertRow(-1);
-            // var accessoryCell = row.insertCell(0);
-            // var amountCell = row.insertCell(1);
-            // var priceCell = row.insertCell(2);
+                    <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>
+                    : 12345678
 
-            var newRow = `
-                <tr>
-                    <td>${selectedAccessory}</td>
-                    <td>${amount}</td>
-                    <td>$${price.toFixed(2)}</td>
-                </tr>
-            `;
-            
-            $("#product-list tbody").append(newRow);
+                    <br>
+                    <span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
+                    : 12345678
+            </div>
+            <div class="col-sm-6"></div>
+            <div class="col-sm-3 text-center">
+                <h1>
+                    QUOTATION
+                </h1>
+                <img src="https://admissions.au.edu/wp-content/uploads/2019/08/science.jpg"
+                    style="width:100px;height:100px;">
+            </div>
+        </div>
+    </div> -->
+
+    <!-- <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <h3>Customer:</h3>
+                <b>Sample customer name 001</b><br>
+                Sample address line1<br>
+                Sample address line2<br>
+                Sample address line3
+            </div>
+            <div class="col-sm-4">
+                <h3>Ship to:</h3>
+                <b>Sample customer name 001</b><br>
+                Sample address line1<br>
+                Sample address line2<br>
+                Sample address line3
+
+            </div>
+
+            <div class="col-sm-4">
+                <h4 id="quotationDate"">
+                    2010/7/27
+                </h4>
+            </div>
+        </div>
+    </div> -->
+
+    <h1>Car Accessory</h1>
+
+    <button type=" button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                    Add Item
+                    </button>
+
+                    <table class=" table table-striped table-bordered table-condensed" id="quotationTable">
+                        <thead>
+                            <tr>
+                                <th>Quantity</th>
+                                <th>Description</th>
+                                <th>Unit Price</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody >
+
+                        </tbody>
+
+                        <tfoot>
+                            <tr id="sub-total">
+                                <td colspan="3" class="text-right"> Subtotal</td>
+                                <td colspan="1" class="text-right" id="subTotal">---</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" class="text-right"> VAT</td>
+                                <td colspan="1" class="text-right" id="vat">--</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" class="text-right"> Shipping &amp; Handling</td>
+                                <td colspan="1" class="text-right" id="bottom-line">0.00</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" class="text-right"> Total Due</td>
+                                <td colspan="1" class="text-right" id="total">--</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+
+                    <br>
+<!-- 
+                    <p class="cen">
+                        <b>Make all checks payable to:</b>
+                        <br><i>Your company name here</i>
+                        <br><b>If you have any question concerning this invoices, call:</b>
+                        <br>
+                        <br><b>THANK YOU FOR YOUR BUSINESS</b>
+                    </p>
 
 
-            
-            // accessoryCell.innerHTML = selectedAccessory;
-            // amountCell.innerHTML = amount;
-            // priceCell.innerHTML = "$" + (price * amount);
-            // totalPrice.innerHTML = "$" + (parseFloat(totalPrice.innerHTML.substring(1)) + (price * amount));
+                    <footer>WHO ARE YOU</footer> -->
 
-            var currentTotal = parseFloat($("#total-price").text().substring(1));
-            var newTotal = currentTotal + price;
-            $("#total-price").text("$" + newTotal.toFixed(2));
 
-            var vatRate = 0.07; // 7% VAT rate
-            var vatAmount = newTotal * vatRate;
-            $("#vatAmount").text("$" + vatAmount.toFixed(2));
-            // var vatAmount = parseFloat(totalPrice.innerHTML.substring(1))* vatRate;
-            //document.getElementById("vatAmount").textContent = "$" + vatAmount.toFixed(2);
-           
-            // var totalAmount = parseFloat(totalPrice.innerHTML.substring(1)) + vatAmount;
-            //document.getElementById("totalAmount").textContent = "$" + totalAmount.toFixed(2);
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h2 class="modal-title" id="exampleModalLabel">Add Item</h2>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <table class="table">
+                                        <tr>
+                                            <td>Description</td>
+                                            <td><select id="newItemDescription">
+                                                <option>Car Cover</option>
+                                                <option>Seat Covers</option>
+                                                <option>Phone Holder</option>
+                                                <!-- Add more options here -->
+                                            </select></td>
+                                            <!-- <td><input type="text" id="newItemDescription"></td> -->
+                                        </tr>
+                                        <tr>
+                                            <td>Price Per Unit</td>
+                                            <td><input type="number" min="0" id="newItemPPU"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Quantity</td>
+                                            <td><input type="number" min="0" id="newItemQty"></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary" onclick="addItem()">Save New
+                                        Item</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-            var totalAmount = newTotal + vatAmount;
-            $("#totalAmount").text("$" + totalAmount.toFixed(2));
+                    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+                        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+                        crossorigin="anonymous"></script>
+                    <script>
 
-        }    
- 
-    </script>
+                        // var data = [
+                        //     { quantity: 2, description: 'Stock Item Example 0001', unitPrice: 1000 },
+                        //     { quantity: 3, description: 'Stock Item Example 0002', unitPrice: 2000 },
+                        //     { quantity: 1, description: 'Service Charge Invoicing Item 001', unitPrice: 1000 },
+                        //     {
+                        //         quantity: 1,
+                        //         description: 'Service Charge Invoicing Item 002',
+                        //         details: ['Additional line 1 for this item', 'Additional line 2 for this item'],
+                        //         unitPrice: 200
+                        //     }
+                        // ]
+
+                        // // Fetch the data from a given URL
+                        // var promise = fetch('http://127.0.0.1:5500/data/data.json')
+                        // // data has arrived, we transform it
+                        // var p2 = promise.then(data => { 
+                        //     return data.json() 
+                        // })
+                        // // data has been transformed, we use it
+                        // p2.then(json => {
+                        //     console.log('Data Received',json)
+                        // })
+
+                        var quoationData = []
+
+                        function addItem() {
+                            var d = $("#newItemDescription").val()
+                            var u = $("#newItemPPU").val()
+                            var q = $("#newItemQty").val()
+                            console.debug(d, u, q)
+                            quoationData.push({
+                                description: d,
+                                quantity: Number.parseFloat(q),
+                                unitPrice: Number.parseFloat(u)
+                            })
+                            $('#exampleModal').modal('hide')
+                            renderTable()
+                        }
+
+                        function renderTable() {
+                            var data = quoationData
+                            var subTotal = 0
+                            data.forEach((e) => {
+                                subTotal = subTotal + (e.unitPrice * e.quantity)
+                            })
+                            var vat = (subTotal * .07).toFixed(2)
+                            var total = subTotal * 1.07
+
+                            console.log('subTotal', subTotal)
+                            $("#subTotal").html("" + subTotal)
+                            $("#vat").html("" + vat)
+                            $("#total").html("" + total)
+
+                            var dataRows = data.map((e,i) => {
+                                let amount = e.quantity * e.unitPrice
+                                return `<tr class="data-row">
+                            <td class="text-center">${e.quantity}</td>
+                            <td class="data">
+                                <button onclick="deleteItem(${i})">X</button>
+                                ${e.description}
+                            </td>
+                            <td class="text-right">${e.unitPrice.toFixed(2)}</td>
+                            <td class="text-right">${amount.toFixed(2)}</td>
+                        </tr>`;                        
+                            })
+
+                            $(".data-row").remove()
+
+                            // Insert into the table
+                            dataRows.forEach((r) => {
+                                $('#quotationTable tbody').before(r)
+                            })
+
+                        }
+
+                        function deleteItem(i) {
+                            quoationData.splice(i,1)
+                            renderTable()
+                        }
+
+                        $(document).ready(function () {
+                            $.getJSON('data/data.json',
+                                data => {
+                                    // render the table
+                                    quoationData = data;
+
+                                    var d = new Date()
+                                    $('#quotationDate').html(d.toDateString())
+                                    renderTable()
+                                })
+
+                        })
+                    </script>
+
+                    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+                        integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
+                        crossorigin="anonymous"></script>
 </body>
-</html></select>
- 
+
+</html>
